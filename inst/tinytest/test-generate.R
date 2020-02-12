@@ -2,7 +2,8 @@
 ptrn <- "[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}"
 
 expect_error(uuid_generate(NULL))
-expect_error(uuid_generate(NA))
+# expect_error(uuid_generate(NA_integer_))
+expect_error(uuid_generate(c(0, 0)))
 expect_equal(uuid_generate(0), character(0))
 expect_true(is.character(uuid_generate(1)))
 expect_true(grepl(ptrn, uuid_generate(1)))

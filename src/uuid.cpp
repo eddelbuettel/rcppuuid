@@ -60,7 +60,7 @@ Rcpp::LogicalVector uuid_validate(Rcpp::StringVector x) {
   size_t n = x.size();
   Rcpp::LogicalVector res = Rcpp::no_init(n);
   for (size_t i = 0; i < n; ++i) {
-    if (x[i].empty() || Rcpp::StringVector::is_na(x[i])) {
+    if (Rcpp::StringVector::is_na(x[i])) {
       res[i] = NA_LOGICAL;
     } else {
       res[i] = uuids::uuid::is_valid_uuid(std::string(x[i]));
