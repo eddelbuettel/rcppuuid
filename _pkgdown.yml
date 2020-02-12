@@ -1,0 +1,11 @@
+url: https://artemklevtsov.gitlab.io/RcppUUID/
+
+destination: public
+
+development:
+  mode: unreleased
+
+navbar:
+  right:
+    - icon: fa-gitlab fa-lg
+      href: https://gitlab.com/artemklevtsov/RcppUUID/
