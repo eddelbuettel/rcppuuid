@@ -2,7 +2,6 @@ Package: RcppUUID
 Type: Package
 Title: Generating UUIDs
 Version: 1.0.0
-Date: 2020-02-12
 Authors@R: c(
   person(given = "Artem",
          family = "Klevtsov",
