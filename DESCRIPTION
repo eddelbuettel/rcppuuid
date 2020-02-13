@@ -11,9 +11,11 @@ Authors@R: c(
          comment = c(ORCID = "0000-0003-0492-6647"))
   )
 Description: Tools for generating and validating of UUIDs (Universally Unique Identifiers).
+URL: https://artemklevtsov.gitlab.io/RcppUUID, https://gitlab.com/artemklevtsov
+BugReports: https://gitlab.com/artemklevtsov/RcppUUID/issues
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.3)
-Suggests: tinytest (>= 1.1.0)
+Suggests: tinytest (>= 1.1.0), uuid, microbenchmark
 LinkingTo: Rcpp
 Encoding: UTF-8
 NeedsCompilation: yes
