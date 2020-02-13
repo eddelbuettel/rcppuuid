@@ -4,9 +4,18 @@
 \name{RcppUUID}
 \alias{RcppUUID}
 \alias{RcppUUID-package}
-\title{Generating and validating of UUIDs}
+\title{Generating UUIDs}
 \description{
-Tools for generating and validating of UUIDs (Universally Unique Identifiers).
+Tools for generating UUIDs (Universally Unique Identifiers).
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://artemklevtsov.gitlab.io/rcppuuid}
+  \item \url{https://gitlab.com/artemklevtsov/rcppuuid}
+  \item Report bugs at \url{https://gitlab.com/artemklevtsov/rcppuuid/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Artem Klevtsov \email{a.a.klevtsov@gmail.com} (\href{https://orcid.org/0000-0003-0492-6647}{ORCID})

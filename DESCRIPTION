@@ -1,6 +1,6 @@
 Package: RcppUUID
 Type: Package
-Title: Generating and validating of UUIDs
+Title: Generating UUIDs
 Version: 1.0.0
 Date: 2020-02-12
 Authors@R: c(
@@ -10,7 +10,7 @@ Authors@R: c(
          email = "a.a.klevtsov@gmail.com",
          comment = c(ORCID = "0000-0003-0492-6647"))
   )
-Description: Tools for generating and validating of UUIDs (Universally Unique Identifiers).
+Description: Tools for generating UUIDs (Universally Unique Identifiers).
 URL: https://artemklevtsov.gitlab.io/rcppuuid, https://gitlab.com/artemklevtsov/rcppuuid
 BugReports: https://gitlab.com/artemklevtsov/rcppuuid/issues
 License: GPL (>= 2)

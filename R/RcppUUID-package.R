@@ -1,7 +1,7 @@
-#' @title Generating and validating of UUIDs
+#' @title Generating UUIDs
 #'
 #' @description
-#' Tools for generating and validating of UUIDs (Universally Unique Identifiers).
+#' Tools for generating UUIDs (Universally Unique Identifiers).
 #'
 #' @name RcppUUID
 #' @docType package
