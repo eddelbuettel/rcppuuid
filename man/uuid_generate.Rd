@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{uuid_generate}
 \alias{uuid_generate}
-\title{Generate UUID}
+\title{Generate a version 4 UUID}
 \usage{
 uuid_generate(n = 1L)
 }

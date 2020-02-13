@@ -1,0 +1,2 @@
+PKG_CPPFLAGS = -I../inst/include -fpermissive
+CXX_STD = CXX11

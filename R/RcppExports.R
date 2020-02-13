@@ -2,7 +2,7 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' @title
-#' Generate UUID
+#' Generate a version 4 UUID
 #'
 #' @description
 #' Function generates a new Universally Unique Identifier.
@@ -18,24 +18,5 @@
 #'
 uuid_generate <- function(n = 1L) {
     .Call(`_RcppUUID_uuid_generate`, n)
-}
-
-#' @title
-#' Validate UUID
-#'
-#' @description
-#' Function validate a Universally Unique Identifiers.
-#'
-#' @param x Character vector with UUIDs.
-#'
-#' @return Loical vector.
-#'
-#' @export
-#'
-#' @examples
-#' uuid_validate(uuid_generate(5))
-#'
-uuid_validate <- function(x) {
-    .Call(`_RcppUUID_uuid_validate`, x)
 }
 

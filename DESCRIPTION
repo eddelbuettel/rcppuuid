@@ -17,5 +17,5 @@ Suggests: tinytest (>= 1.1.0)
 LinkingTo: Rcpp
 Encoding: UTF-8
 NeedsCompilation: yes
-SystemRequirements: C++17
+SystemRequirements: C++11
 RoxygenNote: 7.0.2

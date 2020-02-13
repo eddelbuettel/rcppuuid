@@ -1,8 +1,0 @@
-expect_error(uuid_validate(NULL))
-expect_equal(uuid_validate(NA), NA)
-expect_false(uuid_validate(""), NA)
-expect_false(uuid_validate("0"))
-expect_false(all(uuid_validate(c("0", "0"))))
-expect_equal(length(uuid_generate(7)), 7)
-expect_true(uuid_validate(uuid_generate(1)))
-expect_true(all(uuid_validate(uuid_generate(100))))
