@@ -14,6 +14,7 @@ Description: Tools for generating and validating of UUIDs (Universally Unique Id
 URL: https://artemklevtsov.gitlab.io/RcppUUID, https://gitlab.com/artemklevtsov
 BugReports: https://gitlab.com/artemklevtsov/RcppUUID/issues
 License: GPL (>= 2)
+Copyright: file COPYRIGHTS
 Imports: Rcpp (>= 1.0.3)
 Suggests: tinytest (>= 1.1.0), uuid, microbenchmark
 LinkingTo: Rcpp

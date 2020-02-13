@@ -1,0 +1,19 @@
+Overall license:
+================
+
+All package files are released under the GNU General Public License version 2.
+
+The ced package based on the original Compact Encoding Detection software by Google (https://github.com/google/compact_enc_det). Local version is situated in the src/compact_enc_det folder.
+
+Details:
+========
+
+Files: *
+Copyright: (c) 2020 Artem Klevtsov
+License: GPL-2
+Original Location: https://gitlab.com/artemklevtsov/rcppuuid
+
+Files: inst/include/sole.hpp
+Copyright: (c) 2015 r-lyeh (https://github.com/r-lyeh)
+License: zlib License
+Original Location: https://github.com/r-lyeh-archived/sole
