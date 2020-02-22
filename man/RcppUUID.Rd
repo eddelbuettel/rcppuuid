@@ -4,9 +4,11 @@
 \name{RcppUUID}
 \alias{RcppUUID}
 \alias{RcppUUID-package}
-\title{Generating UUIDs}
+\title{Generating Universally Unique Identificators}
 \description{
-Tools for generating UUIDs (Universally Unique Identifiers).
+Provides funstion to generating a vector of Universally Unique Identifiers
+(UUID) version 4. Based on the sole C++ library <https://github.com/r-lyeh-archived/sole>.
+Used the OpenMP library to improve performance.
 }
 \seealso{
 Useful links:

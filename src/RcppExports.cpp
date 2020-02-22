@@ -6,7 +6,7 @@
 using namespace Rcpp;
 
 // uuid_generate
-Rcpp::StringVector uuid_generate(size_t n);
+std::vector<std::string> uuid_generate(size_t n);
 RcppExport SEXP _RcppUUID_uuid_generate(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

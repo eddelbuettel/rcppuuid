@@ -4,6 +4,7 @@
 ^\.gitlab$
 ^ci$
 ^windows$
+^tmp$
 ^src/.*\.o
 ^src/.*\.so
 ^src/.*\.dll

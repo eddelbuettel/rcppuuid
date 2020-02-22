@@ -5,7 +5,7 @@
 //' Generate a version 4 UUID
 //'
 //' @description
-//' Function generates a new Universally Unique Identifier.
+//' Function generates a set of Universally Unique Identifiers.
 //'
 //' @param n Number of generated UUIDs.
 //'
@@ -16,11 +16,13 @@
 //' @examples
 //' uuid_generate(5)
 //'
-// [[Rcpp::export(rng = false)]]
-Rcpp::StringVector uuid_generate(size_t n = 1) {
-  std::vector<sole::uuid> uuids(n);
-  std::generate(uuids.begin(), uuids.end(), sole::uuid4);
-  Rcpp::StringVector res = Rcpp::no_init(n);
-  std::transform(uuids.begin(), uuids.end(), res.begin(), [](const sole::uuid& x) { return x.str(); });
+// [[Rcpp::export(rng=false)]]
+std::vector<std::string> uuid_generate(size_t n = 1) {
+  std::vector<std::string> res(n);
+  #pragma omp parallel for
+  for (size_t i = 0; i < n; ++i) {
+    sole::uuid id = sole::uuid4();
+    res[i] = id.str();
+  }
   return res;
 }

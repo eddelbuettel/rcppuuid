@@ -13,7 +13,7 @@ uuid_generate(n = 1L)
 Character vector with UUIDs.
 }
 \description{
-Function generates a new Universally Unique Identifier.
+Function generates a set of Universally Unique Identifiers.
 }
 \examples{
 uuid_generate(5)

@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-R package to generate Universally Unique Identifiers (UUIDs).
+R package to generate Universally Unique Identifiers (UUIDs) version 4. Based on the [sole](https://github.com/r-lyeh-archived/sole) C++ library.
 
 ## Installation
 
@@ -64,8 +64,9 @@ n <- 1000000
 length(unique(RcppUUID::uuid_generate(n))) == n
 ```
 
-
 ## Benchmarking
+
+Single UUID:
 
 ```{r}
 microbenchmark::microbenchmark(
@@ -74,6 +75,8 @@ microbenchmark::microbenchmark(
 )
 ```
 
+Multiple UUIDs:
+
 ```{r}
 n <- 10000
 microbenchmark::microbenchmark(
@@ -81,7 +84,6 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate(n)
 )
 ```
-
 
 ## Bug reports
 

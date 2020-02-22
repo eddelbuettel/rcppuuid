@@ -18,7 +18,9 @@ v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org
 
 <!-- badges: end -->
 
-R package to generate Universally Unique Identifiers (UUIDs).
+R package to generate Universally Unique Identifiers (UUIDs) version 4.
+Based on the [sole](https://github.com/r-lyeh-archived/sole) C++
+library.
 
 ## Installation
 
@@ -45,18 +47,18 @@ Generate single UUID:
 
 ``` r
 RcppUUID::uuid_generate(1)
-#> [1] "463f2be4-d35a-4918-9cf0-202c6b80f256"
+#> [1] "1700a888-a7c5-4dd4-9aad-a98128279f87"
 ```
 
 Generate multiple UUIDs:
 
 ``` r
 RcppUUID::uuid_generate(5)
-#> [1] "fc4bf713-7ea7-418b-8050-deac2ff6eac8"
-#> [2] "d2ba5e3b-2d65-4cad-a006-ed221cefca00"
-#> [3] "59b5dc67-e617-42de-8b23-31be07e941cf"
-#> [4] "33ad0521-0127-446a-8469-82e5b2442fcd"
-#> [5] "5058e91e-ca1d-479f-9ecf-8e21e33565db"
+#> [1] "04c01dc0-299d-461e-9b56-2f881376f445"
+#> [2] "b18beaf4-b27c-4fed-a93c-08f80feb1fcf"
+#> [3] "29e2778d-7b5b-4128-9184-3865953c69f0"
+#> [4] "818d0636-d854-44a3-ab43-6fb9bbb60e40"
+#> [5] "a09697a7-5cc5-41b3-86b3-07ba50bf8cd3"
 ```
 
 Check uniques:
@@ -69,16 +71,20 @@ length(unique(RcppUUID::uuid_generate(n))) == n
 
 ## Benchmarking
 
+Single UUID:
+
 ``` r
 microbenchmark::microbenchmark(
   uuid = uuid::UUIDgenerate(FALSE),
   RcppUUID = RcppUUID::uuid_generate(1)
 )
 #> Unit: microseconds
-#>      expr    min      lq     mean  median      uq      max neval cld
-#>      uuid 14.808 15.4950 38.84707 15.8645 16.2765 2296.561   100   a
-#>  RcppUUID 10.752 11.3085 12.63245 11.9840 12.4820   69.302   100   a
+#>      expr    min     lq      mean  median      uq      max neval cld
+#>      uuid 15.221 16.270  59.07903 17.5115 18.4200 4167.623   100   a
+#>  RcppUUID 13.318 44.686 163.90026 65.0965 95.2315 6306.544   100   a
 ```
+
+Multiple UUIDs:
 
 ``` r
 n <- 10000
@@ -88,8 +94,8 @@ microbenchmark::microbenchmark(
 )
 #> Unit: milliseconds
 #>      expr       min        lq      mean    median        uq       max neval cld
-#>      uuid 170.63409 186.62638 206.77789 194.16725 218.38896 398.37136   100   b
-#>  RcppUUID  33.13655  33.62311  33.84627  33.82633  34.07119  34.54811   100  a
+#>      uuid 179.76032 200.29648 225.46853 215.11818 237.76798 410.55628   100   b
+#>  RcppUUID  17.10199  19.23641  21.17651  20.07005  21.28216  42.02892   100  a
 ```
 
 ## Bug reports

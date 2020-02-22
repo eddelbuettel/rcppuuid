@@ -5,7 +5,7 @@
 #' Generate a version 4 UUID
 #'
 #' @description
-#' Function generates a new Universally Unique Identifier.
+#' Function generates a set of Universally Unique Identifiers.
 #'
 #' @param n Number of generated UUIDs.
 #'
