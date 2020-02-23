@@ -17,12 +17,12 @@
 //' uuid_generate(5)
 //'
 // [[Rcpp::export(rng=false)]]
-std::vector<std::string> uuid_generate(size_t n = 1) {
+std::vector<std::string> uuid_generate(size_t n = 1)  {
   std::vector<std::string> res(n);
   #pragma omp parallel for
   for (size_t i = 0; i < n; ++i) {
-    uuid id = uuid_generator{}();
-    res[i] = to_string(id);
+    uuids::uuid id = uuids::uuid_generator{}();
+    res[i] = uuids::to_string(id);
   }
   return res;
 }

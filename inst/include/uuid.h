@@ -19,6 +19,8 @@
 #include <random>
 #endif
 
+namespace uuids {
+
 /*
  * UUID class
  */
@@ -40,8 +42,27 @@ public:
 
 private:
   data_t data{{ 0 }};
+  friend bool operator==(const uuid& lhs, const uuid& rhs) noexcept;
+  friend bool operator<(const uuid& lhs, const uuid& rhs) noexcept;
   friend std::ostream &operator<<(std::ostream& s, const uuid& id);
 };
+
+bool operator==(const uuid& lhs, const uuid& rhs) noexcept {
+  return lhs.data == rhs.data;
+}
+
+bool operator!=(const uuid& lhs, const uuid& rhs) noexcept {
+    return !(lhs == rhs);
+}
+
+bool operator<(const uuid& lhs, const uuid& rhs) noexcept {
+    return lhs.data < rhs.data;
+}
+
+void swap(uuid& lhs, uuid& rhs) noexcept {
+    lhs.swap(rhs);
+}
+
 
 std::ostream &operator<<(std::ostream &s, const uuid& id) {
   std::ios_base::fmtflags f(s.flags());
@@ -197,3 +218,5 @@ public:
 #endif
   }
 };
+
+} // uuid
