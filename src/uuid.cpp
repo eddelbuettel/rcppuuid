@@ -1,4 +1,4 @@
-#include <sole.hpp>
+#include <uuid.h>
 #include <Rcpp.h>
 
 //' @title
@@ -21,8 +21,8 @@ std::vector<std::string> uuid_generate(size_t n = 1) {
   std::vector<std::string> res(n);
   #pragma omp parallel for
   for (size_t i = 0; i < n; ++i) {
-    sole::uuid id = sole::uuid4();
-    res[i] = id.str();
+    uuid id = uuid_generator{}();
+    res[i] = to_string(id);
   }
   return res;
 }

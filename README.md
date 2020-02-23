@@ -19,8 +19,6 @@ v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org
 <!-- badges: end -->
 
 R package to generate Universally Unique Identifiers (UUIDs) version 4.
-Based on the [sole](https://github.com/r-lyeh-archived/sole) C++
-library.
 
 ## Installation
 
@@ -47,18 +45,18 @@ Generate single UUID:
 
 ``` r
 RcppUUID::uuid_generate(1)
-#> [1] "1700a888-a7c5-4dd4-9aad-a98128279f87"
+#> [1] "3037a109-1f65-4f34-ac60-69730596442d"
 ```
 
 Generate multiple UUIDs:
 
 ``` r
 RcppUUID::uuid_generate(5)
-#> [1] "04c01dc0-299d-461e-9b56-2f881376f445"
-#> [2] "b18beaf4-b27c-4fed-a93c-08f80feb1fcf"
-#> [3] "29e2778d-7b5b-4128-9184-3865953c69f0"
-#> [4] "818d0636-d854-44a3-ab43-6fb9bbb60e40"
-#> [5] "a09697a7-5cc5-41b3-86b3-07ba50bf8cd3"
+#> [1] "7fc1fbfb-b050-4a5d-acfc-c03094c7f131"
+#> [2] "af7c0750-dc5d-410b-867a-38c66218ceaf"
+#> [3] "b37fedc9-3af5-444b-9ad8-b188cceb6e60"
+#> [4] "1a68b7e7-c110-4c8b-9e45-3c9029e37ac8"
+#> [5] "579dc2f1-8c38-4b9a-ba0a-e28427d6e184"
 ```
 
 Check uniques:
@@ -79,9 +77,9 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate(1)
 )
 #> Unit: microseconds
-#>      expr    min     lq      mean  median      uq      max neval cld
-#>      uuid 15.221 16.270  59.07903 17.5115 18.4200 4167.623   100   a
-#>  RcppUUID 13.318 44.686 163.90026 65.0965 95.2315 6306.544   100   a
+#>      expr    min      lq      mean  median      uq      max neval cld
+#>      uuid 15.323 16.1925  39.53524 17.6065 18.4155 2198.415   100   a
+#>  RcppUUID 48.332 52.5675 130.83716 60.1960 72.5415 6177.065   100   a
 ```
 
 Multiple UUIDs:
@@ -93,9 +91,9 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate(n)
 )
 #> Unit: milliseconds
-#>      expr       min        lq      mean    median        uq       max neval cld
-#>      uuid 179.76032 200.29648 225.46853 215.11818 237.76798 410.55628   100   b
-#>  RcppUUID  17.10199  19.23641  21.17651  20.07005  21.28216  42.02892   100  a
+#>      expr       min        lq      mean    median       uq       max neval cld
+#>      uuid 180.05588 194.97129 229.71894 217.38809 243.4737 432.34116   100   b
+#>  RcppUUID  47.21502  48.92965  52.58226  50.83771  54.1418  80.33077   100  a
 ```
 
 ## Bug reports

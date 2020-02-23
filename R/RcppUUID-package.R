@@ -2,8 +2,7 @@
 #'
 #' @description
 #' Provides funstion to generating a vector of Universally Unique Identifiers
-#' (UUID) version 4. Based on the sole C++ library <https://github.com/r-lyeh-archived/sole>.
-#' Used the OpenMP library to improve performance.
+#' (UUID) version 4. Used the OpenMP library to improve performance.
 #'
 #' @name RcppUUID
 #' @docType package

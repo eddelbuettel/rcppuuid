@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-R package to generate Universally Unique Identifiers (UUIDs) version 4. Based on the [sole](https://github.com/r-lyeh-archived/sole) C++ library.
+R package to generate Universally Unique Identifiers (UUIDs) version 4.
 
 ## Installation
 
