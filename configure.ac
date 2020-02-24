@@ -18,48 +18,59 @@ R_BIN="${R_HOME}/bin/R"
 
 dnl pick all flags for testing from R
 CC=`"${R_BIN}" CMD config CC`
-CPP=`"${R_BIN}" CMD config CPP`
 CXX=`"${R_BIN}" CMD config CXX`
 CFLAGS=`"${R_BIN}" CMD config CFLAGS`
 CPPFLAGS=`"${R_BIN}" CMD config CPPFLAGS`
 LDFLAGS=`"${R_BIN}" CMD config LDFLAGS`
 
 AC_PROG_CC(${CC})
-AC_PROG_CPP(${CPP})
 AC_PROG_CXX(${CXX})
 AC_REQUIRE_CPP
 AC_LANG(C++)
 
-host_os=`uname -s`
-case "${host_os}" in
-    Darwin*)
-        PKG_CPPFLAGS=-DGUID_CFUUID
-        PKG_LIBS=-Wl,-S
-        ;;
-    Linux*)
-        AC_CHECK_HEADER([uuid/uuid.h],LIBUUID_HEADER=yes)
-        AC_CHECK_LIB([uuid],[uuid_generate],LIBUUID_LIB=yes)
-        if test "x${LIBUUID_HEADER}" = "xyes" && test "x${LIBUUID_LIB}" = "xyes"; then
-            PKG_CPPFLAGS=-DGUID_LIBUUID
-            PKG_LIBS="-Wl,-S -luuid"
-        else
+dnl random-device compile flag
+AC_ARG_WITH(
+    [random-device],
+    AS_HELP_STRING([--with-random-device],[Use C++ random device to generate UUID.]),
+    [USE_RANDOM_DEVICE=yes]
+)
+
+if test "x$USE_RANDOM_DEVICE" = "xyes"; then
+    AC_MSG_NOTICE([Use random device.])
+    PKG_CPPFLAGS=-DGUID_RANDOM
+else
+    host_os=`uname -s`
+    case "${host_os}" in
+        Darwin*)
+            PKG_CPPFLAGS=-DGUID_CFUUID
+            PKG_LIBS=-Wl,-S
+            ;;
+        Linux*)
+            AC_CHECK_HEADER([uuid/uuid.h],LIBUUID_HEADER=yes)
+            AC_CHECK_LIB([uuid],[uuid_generate],LIBUUID_LIB=yes)
+            if test "x${LIBUUID_HEADER}" = "xyes" && test "x${LIBUUID_LIB}" = "xyes"; then
+                PKG_CPPFLAGS=-DGUID_LIBUUID
+                PKG_LIBS="-Wl,-S -luuid"
+            else
+                PKG_CPPFLAGS=-DGUID_RANDOM
+            fi
+            ;;
+        SunOS*)
+            AC_CHECK_HEADER([uuid/uuid.h],LIBUUID_HEADER=yes)
+            AC_CHECK_LIB([uuid],[uuid_generate],LIBUUID_LIB=yes)
+            if test "x${LIBUUID_HEADER}" = "xyes" && test "x${LIBUUID_LIB}" = "xyes"; then
+                PKG_CPPFLAGS=-DGUID_LIBUUID
+                PKG_LIBS=-luuid
+            else
+                PKG_CPPFLAGS=-DGUID_RANDOM
+            fi
+            ;;
+        *)
             PKG_CPPFLAGS=-DGUID_RANDOM
-        fi
-        ;;
-    SunOS*)
-        AC_CHECK_HEADER([uuid/uuid.h],LIBUUID_HEADER=yes)
-        AC_CHECK_LIB([uuid],[uuid_generate],LIBUUID_LIB=yes)
-        if test "x${LIBUUID_HEADER}" = "xyes" && test "x${LIBUUID_LIB}" = "xyes"; then
-            PKG_CPPFLAGS=-DGUID_LIBUUID
-            PKG_LIBS=-luuid
-        else
-            PKG_CPPFLAGS=-DGUID_RANDOM
-        fi
-        ;;
-    *)
-        PKG_CPPFLAGS=-DGUID_RANDOM
-        ;;
-esac
+            ;;
+    esac
+fi
+
 
 AC_MSG_NOTICE([OS: ${host_os}])
 AC_MSG_NOTICE([CC: ${CC}])

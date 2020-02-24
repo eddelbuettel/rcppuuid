@@ -19,6 +19,8 @@ v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org
 <!-- badges: end -->
 
 R package to generate Universally Unique Identifiers (UUIDs) version 4.
+Library use the platform specific implementation or random device
+instead.
 
 ## Installation
 
@@ -39,24 +41,28 @@ This package contains the compiled code, therefore you have to use the
 [Rtools](https://cran.r-project.org/bin/windows/Rtools/) to install it
 on Windows.
 
+To use random device instead platofrm specific implementation you can
+use the `--with-random-device` configure argument when install package
+from source.
+
 ## Usage
 
 Generate single UUID:
 
 ``` r
 RcppUUID::uuid_generate(1)
-#> [1] "3037a109-1f65-4f34-ac60-69730596442d"
+#> [1] "79fab637-72d1-419d-b21b-b36bd393d107"
 ```
 
 Generate multiple UUIDs:
 
 ``` r
 RcppUUID::uuid_generate(5)
-#> [1] "7fc1fbfb-b050-4a5d-acfc-c03094c7f131"
-#> [2] "af7c0750-dc5d-410b-867a-38c66218ceaf"
-#> [3] "b37fedc9-3af5-444b-9ad8-b188cceb6e60"
-#> [4] "1a68b7e7-c110-4c8b-9e45-3c9029e37ac8"
-#> [5] "579dc2f1-8c38-4b9a-ba0a-e28427d6e184"
+#> [1] "3a2f9da7-a8f7-4b57-9219-96fdf9e7638e"
+#> [2] "a222fbc7-739f-42f5-a1e2-3fc91f453fb9"
+#> [3] "270058cd-0760-4862-ab2b-24340f32cc68"
+#> [4] "1e51723c-5be7-4f8c-b7b9-a9a4b1c204b8"
+#> [5] "6129660a-1f3f-4b36-b707-86243ef2f611"
 ```
 
 Check uniques:
@@ -77,9 +83,9 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate(1)
 )
 #> Unit: microseconds
-#>      expr    min      lq      mean  median      uq      max neval cld
-#>      uuid 15.323 16.1925  39.53524 17.6065 18.4155 2198.415   100   a
-#>  RcppUUID 48.332 52.5675 130.83716 60.1960 72.5415 6177.065   100   a
+#>      expr    min      lq     mean  median      uq      max neval cld
+#>      uuid 15.224 16.2105 36.42521 17.2045 17.7045 1960.891   100   a
+#>  RcppUUID 16.198 16.9845 21.05792 17.2740 17.6950   94.395   100   a
 ```
 
 Multiple UUIDs:
@@ -91,9 +97,9 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate(n)
 )
 #> Unit: milliseconds
-#>      expr       min        lq      mean    median       uq       max neval cld
-#>      uuid 180.05588 194.97129 229.71894 217.38809 243.4737 432.34116   100   b
-#>  RcppUUID  47.21502  48.92965  52.58226  50.83771  54.1418  80.33077   100  a
+#>      expr       min        lq      mean    median        uq       max neval cld
+#>      uuid 179.87545 201.20595 232.13646 222.35388 244.32753 467.21675   100   b
+#>  RcppUUID  50.82422  52.87099  54.39368  53.94923  55.16014  68.06015   100  a
 ```
 
 ## Bug reports

@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-R package to generate Universally Unique Identifiers (UUIDs) version 4.
+R package to generate Universally Unique Identifiers (UUIDs) version 4. Library use the platform specific implementation or random device instead.
 
 ## Installation
 
@@ -42,6 +42,7 @@ remotes::install_gitlab("artemklevtsov/rcppuuid")
 
 This package contains the compiled code, therefore you have to use the [Rtools](https://cran.r-project.org/bin/windows/Rtools/) to install it on Windows.
 
+To use random device instead platofrm specific implementation you can use the `--with-random-device` configure argument when install package from source.
 
 ## Usage
 

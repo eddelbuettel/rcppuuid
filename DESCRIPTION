@@ -10,7 +10,8 @@ Authors@R: c(
          comment = c(ORCID = "0000-0003-0492-6647"))
   )
 Description: Provides funstion to generating a vector of Universally Unique Identifiers
-  (UUID) version 4. Used the OpenMP library to improve performance.
+  (UUID) version 4. Library use the platform specific implementation or random device instead.
+  Used the OpenMP library to improve performance.
 URL: https://artemklevtsov.gitlab.io/rcppuuid, https://gitlab.com/artemklevtsov/rcppuuid
 BugReports: https://gitlab.com/artemklevtsov/rcppuuid/issues
 License: GPL (>= 2)
