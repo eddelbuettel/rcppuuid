@@ -10,6 +10,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "README-"
 )
+options(width = 120)
 ```
 
 # RcppUUID
@@ -24,7 +25,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-R package to generate Universally Unique Identifiers (UUIDs) version 4. Library use the platform specific implementation or random device instead.
+R package to generate Universally Unique Identifiers (UUIDs).
 
 ## Installation
 
@@ -42,27 +43,25 @@ remotes::install_gitlab("artemklevtsov/rcppuuid")
 
 This package contains the compiled code, therefore you have to use the [Rtools](https://cran.r-project.org/bin/windows/Rtools/) to install it on Windows.
 
-To use random device instead platofrm specific implementation you can use the `--with-random-device` configure argument when install package from source.
-
 ## Usage
 
 Generate single UUID:
 
 ```{r}
-RcppUUID::uuid_generate(1)
+RcppUUID::uuid_generate_random(1)
 ```
 
 Generate multiple UUIDs:
 
 ```{r}
-RcppUUID::uuid_generate(5)
+RcppUUID::uuid_generate_random(5)
 ```
 
 Check uniques:
 
 ```{r}
 n <- 1000000
-length(unique(RcppUUID::uuid_generate(n))) == n
+length(unique(RcppUUID::uuid_generate_random(n))) == n
 ```
 
 ## Benchmarking
@@ -72,7 +71,7 @@ Single UUID:
 ```{r}
 microbenchmark::microbenchmark(
   uuid = uuid::UUIDgenerate(FALSE),
-  RcppUUID = RcppUUID::uuid_generate(1)
+  RcppUUID = RcppUUID::uuid_generate_random(1)
 )
 ```
 
@@ -82,7 +81,7 @@ Multiple UUIDs:
 n <- 10000
 microbenchmark::microbenchmark(
   uuid = replicate(n, uuid::UUIDgenerate(FALSE)),
-  RcppUUID = RcppUUID::uuid_generate(n)
+  RcppUUID = RcppUUID::uuid_generate_random(n)
 )
 ```
 

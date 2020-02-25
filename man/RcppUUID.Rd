@@ -7,7 +7,7 @@
 \title{Generating Universally Unique Identificators}
 \description{
 Provides funstion to generating a vector of Universally Unique Identifiers
-(UUID) version 4. Used the OpenMP library to improve performance.
+(UUID). Used the OpenMP library to improve performance.
 }
 \seealso{
 Useful links:

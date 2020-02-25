@@ -5,19 +5,41 @@
 
 using namespace Rcpp;
 
-// uuid_generate
-std::vector<std::string> uuid_generate(size_t n);
-RcppExport SEXP _RcppUUID_uuid_generate(SEXP nSEXP) {
+// uuid_generate_random
+std::vector<std::string> uuid_generate_random(size_t n);
+RcppExport SEXP _RcppUUID_uuid_generate_random(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::traits::input_parameter< size_t >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(uuid_generate(n));
+    rcpp_result_gen = Rcpp::wrap(uuid_generate_random(n));
+    return rcpp_result_gen;
+END_RCPP
+}
+// uuid_generate_nil
+std::vector<std::string> uuid_generate_nil(size_t n);
+RcppExport SEXP _RcppUUID_uuid_generate_nil(SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< size_t >::type n(nSEXP);
+    rcpp_result_gen = Rcpp::wrap(uuid_generate_nil(n));
+    return rcpp_result_gen;
+END_RCPP
+}
+// uuid_generate_name
+std::vector<std::string> uuid_generate_name(const std::vector<std::string>& x);
+RcppExport SEXP _RcppUUID_uuid_generate_name(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< const std::vector<std::string>& >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(uuid_generate_name(x));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_RcppUUID_uuid_generate", (DL_FUNC) &_RcppUUID_uuid_generate, 1},
+    {"_RcppUUID_uuid_generate_random", (DL_FUNC) &_RcppUUID_uuid_generate_random, 1},
+    {"_RcppUUID_uuid_generate_nil", (DL_FUNC) &_RcppUUID_uuid_generate_nil, 1},
+    {"_RcppUUID_uuid_generate_name", (DL_FUNC) &_RcppUUID_uuid_generate_name, 1},
     {NULL, NULL, 0}
 };
 

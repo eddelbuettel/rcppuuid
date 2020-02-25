@@ -9,16 +9,14 @@ Authors@R: c(
          email = "a.a.klevtsov@gmail.com",
          comment = c(ORCID = "0000-0003-0492-6647"))
   )
-Description: Provides funstion to generating a vector of Universally Unique Identifiers
-  (UUID) version 4. Library use the platform specific implementation or random device instead.
+Description: Provides funstion to generating a vector of Universally Unique Identifiers (UUID).
   Used the OpenMP library to improve performance.
 URL: https://artemklevtsov.gitlab.io/rcppuuid, https://gitlab.com/artemklevtsov/rcppuuid
 BugReports: https://gitlab.com/artemklevtsov/rcppuuid/issues
 License: GPL (>= 2)
-Imports: Rcpp (>= 1.0.3)
-Suggests: tinytest (>= 1.1.0), uuid, microbenchmark
-LinkingTo: Rcpp
+Imports: Rcpp
+Suggests: tinytest, uuid, microbenchmark
+LinkingTo: Rcpp, BH
 Encoding: UTF-8
 NeedsCompilation: yes
-SystemRequirements: C++11
 RoxygenNote: 7.0.2

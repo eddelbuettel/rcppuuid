@@ -18,9 +18,7 @@ v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org
 
 <!-- badges: end -->
 
-R package to generate Universally Unique Identifiers (UUIDs) version 4.
-Library use the platform specific implementation or random device
-instead.
+R package to generate Universally Unique Identifiers (UUIDs).
 
 ## Installation
 
@@ -41,35 +39,28 @@ This package contains the compiled code, therefore you have to use the
 [Rtools](https://cran.r-project.org/bin/windows/Rtools/) to install it
 on Windows.
 
-To use random device instead platofrm specific implementation you can
-use the `--with-random-device` configure argument when install package
-from source.
-
 ## Usage
 
 Generate single UUID:
 
 ``` r
-RcppUUID::uuid_generate(1)
-#> [1] "79fab637-72d1-419d-b21b-b36bd393d107"
+RcppUUID::uuid_generate_random(1)
+#> [1] "94f99d02-9aef-4235-941f-733ba4c2e114"
 ```
 
 Generate multiple UUIDs:
 
 ``` r
-RcppUUID::uuid_generate(5)
-#> [1] "3a2f9da7-a8f7-4b57-9219-96fdf9e7638e"
-#> [2] "a222fbc7-739f-42f5-a1e2-3fc91f453fb9"
-#> [3] "270058cd-0760-4862-ab2b-24340f32cc68"
-#> [4] "1e51723c-5be7-4f8c-b7b9-a9a4b1c204b8"
-#> [5] "6129660a-1f3f-4b36-b707-86243ef2f611"
+RcppUUID::uuid_generate_random(5)
+#> [1] "d7fcfd4a-6b3b-4c63-8086-815967264b7f" "145ca48d-013c-46f2-a0d4-23ef0b9a819a" "4a14d8de-c452-48ba-adc4-7495a389b061"
+#> [4] "61176f2b-58e7-4b88-af48-7e3f00ab7ac3" "6d42e8b6-1e9b-4908-8689-bdd338050359"
 ```
 
 Check uniques:
 
 ``` r
 n <- 1000000
-length(unique(RcppUUID::uuid_generate(n))) == n
+length(unique(RcppUUID::uuid_generate_random(n))) == n
 #> [1] TRUE
 ```
 
@@ -80,12 +71,12 @@ Single UUID:
 ``` r
 microbenchmark::microbenchmark(
   uuid = uuid::UUIDgenerate(FALSE),
-  RcppUUID = RcppUUID::uuid_generate(1)
+  RcppUUID = RcppUUID::uuid_generate_random(1)
 )
 #> Unit: microseconds
-#>      expr    min      lq     mean  median      uq      max neval cld
-#>      uuid 15.224 16.2105 36.42521 17.2045 17.7045 1960.891   100   a
-#>  RcppUUID 16.198 16.9845 21.05792 17.2740 17.6950   94.395   100   a
+#>      expr    min      lq     mean  median     uq      max neval cld
+#>      uuid 15.080 15.8810 36.09674 16.2625 16.635 1994.061   100   a
+#>  RcppUUID  8.394  9.1435 13.11459  9.8820 10.487  228.525   100   a
 ```
 
 Multiple UUIDs:
@@ -94,12 +85,12 @@ Multiple UUIDs:
 n <- 10000
 microbenchmark::microbenchmark(
   uuid = replicate(n, uuid::UUIDgenerate(FALSE)),
-  RcppUUID = RcppUUID::uuid_generate(n)
+  RcppUUID = RcppUUID::uuid_generate_random(n)
 )
 #> Unit: milliseconds
-#>      expr       min        lq      mean    median        uq       max neval cld
-#>      uuid 179.87545 201.20595 232.13646 222.35388 244.32753 467.21675   100   b
-#>  RcppUUID  50.82422  52.87099  54.39368  53.94923  55.16014  68.06015   100  a
+#>      expr        min         lq       mean     median         uq       max neval cld
+#>      uuid 174.885527 183.911932 203.315408 191.169173 214.918204 361.96847   100   b
+#>  RcppUUID   5.181347   5.462485   6.749716   5.752187   6.438479  36.75441   100  a
 ```
 
 ## Bug reports
