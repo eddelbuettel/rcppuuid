@@ -1,8 +1,9 @@
 #' @title
-#' Generate UUID
+#' Generate UUIDs
 #'
 #' @description
 #' Function generates a set of Universally Unique Identifiers.
+#' Supported version 4 and 5 UUIDs.
 #'
 #' @param n Number of generated UUIDs.
 #' @param x Character vector.
@@ -10,7 +11,6 @@
 #' @return Character vector with UUIDs.
 #'
 #' @name uuid_generate
-#'
 #'
 #' @examples
 #' # generate random UUIDs

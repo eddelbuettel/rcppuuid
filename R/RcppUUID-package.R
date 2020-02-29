@@ -1,8 +1,9 @@
 #' @title Generating Universally Unique Identificators
 #'
 #' @description
-#' Provides funstion to generating a vector of Universally Unique Identifiers
-#' (UUID). Used the OpenMP library to improve performance.
+#' Provides funstion to generating a vector of Universally Unique Identifiers (UUID).
+#' Used implementation from the Boost C++ library. Supported random (version 4) and name (version 5)
+#' UUIDs. UUIDs generation are parallelized by OpenMP.
 #'
 #' @name RcppUUID
 #' @docType package

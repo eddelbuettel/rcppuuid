@@ -25,7 +25,7 @@ options(width = 120)
 
 <!-- badges: end -->
 
-R package to generate Universally Unique Identifiers (UUIDs).
+R package to generate Universally Unique Identifiers (UUIDs) version 4 and 5.
 
 ## Installation
 
@@ -44,6 +44,8 @@ remotes::install_gitlab("artemklevtsov/rcppuuid")
 This package contains the compiled code, therefore you have to use the [Rtools](https://cran.r-project.org/bin/windows/Rtools/) to install it on Windows.
 
 ## Usage
+
+### Generate version 4 UUIDs
 
 Generate single UUID:
 
@@ -64,14 +66,14 @@ n <- 1000000
 length(unique(RcppUUID::uuid_generate_random(n))) == n
 ```
 
-## Benchmarking
+Benchmarking:
 
 Single UUID:
 
 ```{r}
 microbenchmark::microbenchmark(
   uuid = uuid::UUIDgenerate(FALSE),
-  RcppUUID = RcppUUID::uuid_generate_random(1)
+  RcppUUID = RcppUUID::uuid_generate_random()
 )
 ```
 
@@ -80,9 +82,24 @@ Multiple UUIDs:
 ```{r}
 n <- 10000
 microbenchmark::microbenchmark(
-  uuid = replicate(n, uuid::UUIDgenerate(FALSE)),
+  uuid = uuid::UUIDgenerate(FALSE, n),
   RcppUUID = RcppUUID::uuid_generate_random(n)
 )
+```
+
+### Generate version 5 UUIDs
+
+Generate version UUIDs based on the text input:
+
+```{r}
+RcppUUID::uuid_generate_name(letters)
+```
+
+For the each unique input will be generated unique UUID. Check uniqueness:
+
+```{r}
+uuids <- replicate(10, RcppUUID::uuid_generate_name(letters))
+length(unique(as.vector(uuids))) == length(letters)
 ```
 
 ## Bug reports

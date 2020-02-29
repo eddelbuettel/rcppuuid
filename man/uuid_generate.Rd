@@ -5,7 +5,7 @@
 \alias{uuid_generate_nil}
 \alias{uuid_generate_name}
 \alias{uuid_generate}
-\title{Generate UUID}
+\title{Generate UUIDs}
 \usage{
 uuid_generate_random(n = 1L)
 
@@ -23,6 +23,7 @@ Character vector with UUIDs.
 }
 \description{
 Function generates a set of Universally Unique Identifiers.
+Supported version 4 and 5 UUIDs.
 }
 \examples{
 # generate random UUIDs

@@ -12,7 +12,7 @@ expect_true(is.character(uuid_generate_random(1)))
 expect_true(grepl(ptrn, uuid_generate_random(1)))
 expect_equal(length(uuid_generate_random(1)), 1)
 expect_equal(length(uuid_generate_random(5)), 5)
-expect_equal(length(unique(uuid_generate_random(100))), 100)
+expect_equal(length(unique(uuid_generate_random(1000))), 1000)
 
 
 # uuid_generate_nil
