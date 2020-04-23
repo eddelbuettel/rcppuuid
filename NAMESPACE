@@ -3,5 +3,6 @@
 export(uuid_generate_name)
 export(uuid_generate_nil)
 export(uuid_generate_random)
+export(uuid_validate)
 importFrom(Rcpp,sourceCpp)
 useDynLib(RcppUUID, .registration = TRUE)

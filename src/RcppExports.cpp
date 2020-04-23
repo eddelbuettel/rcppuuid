@@ -35,11 +35,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// uuid_validate
+std::vector<bool> uuid_validate(const std::vector<std::string>& x);
+RcppExport SEXP _RcppUUID_uuid_validate(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< const std::vector<std::string>& >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(uuid_validate(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RcppUUID_uuid_generate_random", (DL_FUNC) &_RcppUUID_uuid_generate_random, 1},
     {"_RcppUUID_uuid_generate_nil", (DL_FUNC) &_RcppUUID_uuid_generate_nil, 1},
     {"_RcppUUID_uuid_generate_name", (DL_FUNC) &_RcppUUID_uuid_generate_name, 1},
+    {"_RcppUUID_uuid_validate", (DL_FUNC) &_RcppUUID_uuid_validate, 1},
     {NULL, NULL, 0}
 };
 

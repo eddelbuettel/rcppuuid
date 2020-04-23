@@ -10,7 +10,7 @@
 #'
 #' @return Character vector with UUIDs.
 #'
-#' @name uuid_generate
+#' @name uuid
 #'
 #' @examples
 #' # generate random UUIDs
@@ -19,5 +19,10 @@
 #' uuid_generate_nil(2)
 #' # generate name UUIDs
 #' uuid_generate_name(c("one", "two"))
+#' # validate UUIDs
+#' uuid_validate(uuid_generate_random(2))
+#' uuid_validate(uuid_generate_nil(2))
+#' uuid_validate(uuid_generate_name(c("one", "two")))
+#' uuid_validate(c("a", ""))
 #'
 NULL

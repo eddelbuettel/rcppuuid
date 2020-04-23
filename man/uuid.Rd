@@ -4,7 +4,8 @@
 \alias{uuid_generate_random}
 \alias{uuid_generate_nil}
 \alias{uuid_generate_name}
-\alias{uuid_generate}
+\alias{uuid_validate}
+\alias{uuid}
 \title{Generate UUIDs}
 \usage{
 uuid_generate_random(n = 1L)
@@ -12,6 +13,8 @@ uuid_generate_random(n = 1L)
 uuid_generate_nil(n = 1L)
 
 uuid_generate_name(x)
+
+uuid_validate(x)
 }
 \arguments{
 \item{n}{Number of generated UUIDs.}
@@ -32,5 +35,10 @@ uuid_generate_random(2)
 uuid_generate_nil(2)
 # generate name UUIDs
 uuid_generate_name(c("one", "two"))
+# validate UUIDs
+uuid_validate(uuid_generate_random(2))
+uuid_validate(uuid_generate_nil(2))
+uuid_validate(uuid_generate_name(c("one", "two")))
+uuid_validate(c("a", ""))
 
 }
