@@ -92,7 +92,7 @@ microbenchmark::microbenchmark(
 Generate version UUIDs based on the text input:
 
 ```{r}
-RcppUUID::uuid_generate_name(letters)
+RcppUUID::uuid_generate_name(letters[1:5])
 ```
 
 For the each unique input will be generated unique UUID. Check uniqueness:
@@ -101,6 +101,15 @@ For the each unique input will be generated unique UUID. Check uniqueness:
 uuids <- replicate(10, RcppUUID::uuid_generate_name(letters))
 length(unique(as.vector(uuids))) == length(letters)
 ```
+
+### Validate UUIDs
+
+```{r}
+RcppUUID::uuid_validate(RcppUUID::uuid_generate_random(5))
+RcppUUID::uuid_validate(RcppUUID::uuid_generate_nil(5))
+RcppUUID::uuid_validate(RcppUUID::uuid_generate_name(letters[1:5]))
+```
+
 
 ## Bug reports
 
