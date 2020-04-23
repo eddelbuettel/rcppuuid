@@ -3,7 +3,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: "recursive"
   R_LIBS: "${CI_PROJECT_DIR}/ci/R/library"
   R_BUILD_ARGS: "--no-manual"
-  R_CHECK_ARGS: "--no-manual --as-cran "
+  R_CHECK_ARGS: "--no-manual --as-cran --run-donttest"
   R_INSTALL_ARGS: "--no-multiarch --with-keep.source"
   APT_DEPS: "devscripts libcurl4-openssl-dev libssl-dev libxml2-dev libicu-dev git-core qpdf pandoc pandoc-citeproc"
   R_REMOTES_UPGRADE: "always"
