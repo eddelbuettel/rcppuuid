@@ -20,4 +20,4 @@ Suggests: tinytest, uuid, microbenchmark
 LinkingTo: Rcpp, BH
 Encoding: UTF-8
 NeedsCompilation: yes
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
