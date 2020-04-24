@@ -33,11 +33,10 @@ expect_equal(length(unique(uuid_generate_nil(100))), 1)
 # test uuid_generate_name -------------------------------------------------
 
 expect_error(uuid_generate_name(NULL))
-expect_error(uuid_generate_name(NA_integer_))
-expect_error(uuid_generate_name(c(0, 0)))
 expect_equal(uuid_generate_name(character(0)), character(0))
+expect_true(grepl(uuid_ptrn, uuid_generate_name(NA_character_)))
+expect_true(grepl(uuid_ptrn, uuid_generate_name("")))
 expect_true(grepl(uuid_ptrn, uuid_generate_name("a")))
-expect_equal(uuid_generate_name(""), uuid_nil)
 expect_equal(length(uuid_generate_name(letters)), length(letters))
 expect_equal(length(unique(uuid_generate_name(letters))), length(letters))
 
@@ -45,12 +44,12 @@ expect_equal(length(unique(uuid_generate_name(letters))), length(letters))
 # test uuid_validate ------------------------------------------------------
 
 expect_error(uuid_validate(NULL))
-expect_error(uuid_validate(NA_integer_))
-expect_error(uuid_validate(c(0, 0)))
 expect_equal(uuid_validate(character(0)), logical(0))
 expect_true(uuid_validate(uuid_generate_random(1)))
 expect_true(uuid_validate(uuid_generate_nil(1)))
 expect_true(uuid_validate(uuid_generate_name("a")))
+expect_false(uuid_validate(NA_character_))
+expect_false(uuid_validate(""))
 expect_false(uuid_validate("a"))
 expect_equal(length(uuid_validate(c("a", "f"))), 2)
 expect_equal(length(uuid_validate(uuid_generate_random(10))), 10)
