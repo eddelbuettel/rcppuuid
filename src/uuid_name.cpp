@@ -1,0 +1,38 @@
+#include "wrap.h"
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/name_generator.hpp>
+#include <Rcpp.h>
+
+using namespace Rcpp;
+using namespace boost;
+using boost::uuids::uuid;
+
+//' @title Generate UUIDs Version 5
+//'
+//' @description
+//' Function generates uuids using operating system provided entropy.
+//'
+//' @param x Character vector.
+//' @return Character vector with UUIDs.
+//'
+//' @note
+//' This function generates valid uuids for the `NA`.
+//'
+//' @export
+//'
+//' @references
+//' <https://www.boost.org/doc/libs/1_72_0/libs/uuid/doc/uuid.html#Name%20Generator>
+//'
+//' @export
+//'
+//' @examples
+//' # generate name UUIDs
+//' uuid_generate_name(c("one", "two"))
+//'
+// [[Rcpp::export(rng=false)]]
+StringVector uuid_generate_name(StringVector x)  {
+  std::vector<uuid> res(x.size());
+  uuids::name_generator_sha1 gen(uuids::ns::x500dn());
+  std::transform(x.begin(), x.end(), res.begin(), gen);
+  return wrap(res);
+}
