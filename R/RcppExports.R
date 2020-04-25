@@ -4,13 +4,15 @@
 #' @title Generate UUIDs Version 5
 #'
 #' @description
-#' Function generates uuids using operating system provided entropy.
+#' Function generates name-based uuid is derived from content in a namespace.
+#' A uuid with identical content shall yield the same uuid.
+#' Hashing algorithm is SHA1. Namespace is X.500 DN.
 #'
 #' @param x Character vector.
 #' @return Character vector with UUIDs.
 #'
 #' @note
-#' This function generates valid uuids for the `NA`.
+#' This function generates valid uuids for the `NA` and empty strings.
 #'
 #' @export
 #'

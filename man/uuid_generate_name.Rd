@@ -13,10 +13,12 @@ uuid_generate_name(x)
 Character vector with UUIDs.
 }
 \description{
-Function generates uuids using operating system provided entropy.
+Function generates name-based uuid is derived from content in a namespace.
+A uuid with identical content shall yield the same uuid.
+Hashing algorithm is SHA1. Namespace is X.500 DN.
 }
 \note{
-This function generates valid uuids for the \code{NA}.
+This function generates valid uuids for the \code{NA} and empty strings.
 }
 \examples{
 # generate name UUIDs

@@ -48,15 +48,15 @@ Generate single UUID:
 
 ``` r
 RcppUUID::uuid_generate_random(1)
-#> [1] "ca141f08-f799-4a7c-8468-c8360660b029"
+#> [1] "f33469b6-375f-43d0-84a4-f0cd1a9dded8"
 ```
 
 Generate multiple UUIDs:
 
 ``` r
 RcppUUID::uuid_generate_random(5)
-#> [1] "1a4959ea-9790-4004-b0ce-adeaa3b66199" "ec42102d-49a8-4c38-9c75-e7f8af651d74" "ef8b350e-5bf4-4bf5-b0da-397b617498d9"
-#> [4] "89eb3374-21ec-4a8c-b731-0fa2542bd58a" "c0fe4663-1e10-44d3-92ce-d72cdb51db2c"
+#> [1] "0f147b42-a342-40da-95aa-2b6c99dd3a98" "54fdcb4d-fae2-4b19-8317-1a5a9b16f9ab" "7a845efc-1421-4ef3-ba9b-2b5d3ef63436"
+#> [4] "8dd0673d-3c0a-4fcf-babe-e6494ea9ec23" "c4231d2b-5a32-4efe-b4b0-5ea410511385"
 ```
 
 Check uniques:
@@ -77,9 +77,9 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate_random()
 )
 #> Unit: microseconds
-#>      expr    min      lq     mean  median      uq      max neval cld
-#>      uuid 14.278 14.9105 33.79106 15.1435 15.4240 1852.201   100   a
-#>  RcppUUID  7.129  7.6680  8.72125  8.3140  8.7985   41.344   100   a
+#>      expr    min     lq     mean  median      uq      max neval
+#>      uuid 15.401 16.176 39.18941 16.3925 16.8025 2172.246   100
+#>  RcppUUID  7.691  8.407  9.91202  9.4085  9.9535   19.778   100
 ```
 
 Multiple UUIDs:
@@ -91,9 +91,9 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate_random(n)
 )
 #> Unit: milliseconds
-#>      expr       min        lq     mean    median        uq      max neval cld
-#>      uuid 72.080692 73.009557 76.87999 73.463078 73.671392 284.4107   100   b
-#>  RcppUUID  7.554901  7.868102 11.07176  8.437234  9.014238 265.7360   100  a
+#>      expr       min        lq     mean    median        uq      max neval
+#>      uuid 72.557325 74.371166 81.24056 75.614255 77.783372 291.6280   100
+#>  RcppUUID  7.567676  8.075046 11.16130  8.498816  8.764609 175.4246   100
 ```
 
 ### Generate version 5 UUIDs
