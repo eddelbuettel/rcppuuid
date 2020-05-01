@@ -2,3 +2,8 @@ include:
   - project: artemklevtsov/rcheck
     ref: master
     file: /.gitlab-ci-rpkg.yml
+
+stages:
+  - test
+  - check
+  - deploy
