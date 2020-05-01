@@ -4,7 +4,7 @@
 #include <Rcpp.h>
 
 using namespace Rcpp;
-using namespace boost;
+using boost::uuids::random_generator_pure;
 using boost::uuids::uuid;
 
 //' @title Generate UUIDs Version 4
@@ -27,6 +27,6 @@ using boost::uuids::uuid;
 // [[Rcpp::export(rng=false)]]
 StringVector uuid_generate_random(size_t n = 1)  {
   std::vector<uuid> res(n);
-  std::generate(res.begin(), res.end(), uuids::random_generator());
+  std::generate(res.begin(), res.end(), random_generator_pure());
   return wrap(res);
 }

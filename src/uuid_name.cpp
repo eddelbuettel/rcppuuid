@@ -4,7 +4,8 @@
 #include <Rcpp.h>
 
 using namespace Rcpp;
-using namespace boost;
+using boost::uuids::name_generator_sha1;
+using boost::uuids::ns::x500dn;
 using boost::uuids::uuid;
 
 //' @title Generate UUIDs Version 5
@@ -34,7 +35,7 @@ using boost::uuids::uuid;
 // [[Rcpp::export(rng=false)]]
 StringVector uuid_generate_name(StringVector x)  {
   std::vector<uuid> res(x.size());
-  uuids::name_generator_sha1 gen(uuids::ns::x500dn());
+  name_generator_sha1 gen(x500dn());
   std::transform(x.begin(), x.end(), res.begin(), gen);
   return wrap(res);
 }

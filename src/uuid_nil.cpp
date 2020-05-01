@@ -4,7 +4,7 @@
 #include <Rcpp.h>
 
 using namespace Rcpp;
-using namespace boost;
+using boost::uuids::nil_generator;
 using boost::uuids::uuid;
 
 //' @title Generrates Nil UUIDs
@@ -27,6 +27,6 @@ using boost::uuids::uuid;
 // [[Rcpp::export(rng=false)]]
 StringVector uuid_generate_nil(size_t n = 1)  {
   std::vector<uuid> res(n);
-  std::generate(res.begin(), res.end(), uuids::nil_generator());
+  std::generate(res.begin(), res.end(), nil_generator());
   return wrap(res);
 }

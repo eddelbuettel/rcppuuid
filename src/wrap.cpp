@@ -8,11 +8,6 @@ namespace Rcpp {
   using boost::uuids::uuid;
 
   template<>
-  SEXP wrap(const uuid& u) {
-    return wrap(to_string(u));
-  }
-
-  template<>
   SEXP wrap(const std::vector<uuid>& x) {
     StringVector res = no_init(x.size());
     std::transform(x.begin(), x.end(), res.begin(), [](const uuid& u) { return to_string(u); });

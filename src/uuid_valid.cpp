@@ -1,17 +1,17 @@
 #include "wrap.h"
 #include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/string_generator.hpp>
 #include <Rcpp.h>
 
 using namespace Rcpp;
-using namespace boost;
+using boost::uuids::string_generator;
 using boost::uuids::uuid;
 
 inline bool try_uuid(const char* s) {
   try {
-    uuids::string_generator gen;
-    uuids::uuid id = gen(s);
-    return id.is_nil() || id.version() != uuids::uuid::version_unknown;
+    string_generator gen;
+    uuid id = gen(s);
+    return id.is_nil() || id.version() != uuid::version_unknown;
   } catch(...) {
     return false;
   }
