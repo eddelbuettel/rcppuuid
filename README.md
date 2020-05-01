@@ -19,7 +19,7 @@ v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org
 <!-- badges: end -->
 
 R package to generate Universally Unique Identifiers (UUIDs) version 4
-and 5.
+and 5 using Boost C++ library.
 
 ## Installation
 
@@ -47,23 +47,24 @@ on Windows.
 Generate single UUID:
 
 ``` r
-RcppUUID::uuid_generate_random(1)
-#> [1] "f33469b6-375f-43d0-84a4-f0cd1a9dded8"
+RcppUUID::uuid_generate_random()
+#> [1] "41b45c2e-9745-4362-8277-95fe998f2ef9"
 ```
 
 Generate multiple UUIDs:
 
 ``` r
 RcppUUID::uuid_generate_random(5)
-#> [1] "0f147b42-a342-40da-95aa-2b6c99dd3a98" "54fdcb4d-fae2-4b19-8317-1a5a9b16f9ab" "7a845efc-1421-4ef3-ba9b-2b5d3ef63436"
-#> [4] "8dd0673d-3c0a-4fcf-babe-e6494ea9ec23" "c4231d2b-5a32-4efe-b4b0-5ea410511385"
+#> [1] "2f669c10-2ad7-461b-a531-103bafed0b15" "fbe4959e-c723-4670-a155-f440c753c509" "074c5472-b314-4e4f-9aab-88bfc72f030a"
+#> [4] "ad9ebe8c-4b85-4819-b1bd-6091a2305024" "d5287bae-666c-448b-bcb9-2e41fc173540"
 ```
 
-Check uniques:
+Check uniques for the uuids:
 
 ``` r
+unique_n <- function(x) length(unique(x))
 n <- 1000000
-length(unique(RcppUUID::uuid_generate_random(n))) == n
+unique_n(RcppUUID::uuid_generate_random(n)) == n
 #> [1] TRUE
 ```
 
@@ -77,9 +78,9 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate_random()
 )
 #> Unit: microseconds
-#>      expr    min     lq     mean  median      uq      max neval
-#>      uuid 15.401 16.176 39.18941 16.3925 16.8025 2172.246   100
-#>  RcppUUID  7.691  8.407  9.91202  9.4085  9.9535   19.778   100
+#>      expr    min      lq     mean  median      uq      max neval
+#>      uuid 15.532 16.0670 44.47824 16.2875 16.5985 2794.521   100
+#>  RcppUUID  8.166  8.6705  9.36236  9.4465  9.7080   19.991   100
 ```
 
 Multiple UUIDs:
@@ -91,9 +92,9 @@ microbenchmark::microbenchmark(
   RcppUUID = RcppUUID::uuid_generate_random(n)
 )
 #> Unit: milliseconds
-#>      expr       min        lq     mean    median        uq      max neval
-#>      uuid 72.557325 74.371166 81.24056 75.614255 77.783372 291.6280   100
-#>  RcppUUID  7.567676  8.075046 11.16130  8.498816  8.764609 175.4246   100
+#>      expr       min        lq      mean    median        uq       max neval
+#>      uuid 74.147780 77.636038 87.449953 79.408061 81.066626 304.77218   100
+#>  RcppUUID  7.956943  8.725376  9.133505  9.101491  9.452271  11.24261   100
 ```
 
 ### Generate version 5 UUIDs
@@ -118,6 +119,12 @@ length(unique(as.vector(uuids))) == length(letters)
 ### Validate UUIDs
 
 ``` r
+RcppUUID::uuid_validate(NA_character_)
+#> [1] FALSE
+RcppUUID::uuid_validate("")
+#> [1] FALSE
+RcppUUID::uuid_validate("not uuid")
+#> [1] FALSE
 RcppUUID::uuid_validate(RcppUUID::uuid_generate_random(5))
 #> [1] TRUE TRUE TRUE TRUE TRUE
 RcppUUID::uuid_validate(RcppUUID::uuid_generate_nil(5))

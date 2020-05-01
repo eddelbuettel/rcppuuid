@@ -25,7 +25,7 @@ options(width = 120)
 
 <!-- badges: end -->
 
-R package to generate Universally Unique Identifiers (UUIDs) version 4 and 5.
+R package to generate Universally Unique Identifiers (UUIDs) version 4 and 5 using Boost C++ library.
 
 ## Installation
 
@@ -50,7 +50,7 @@ This package contains the compiled code, therefore you have to use the [Rtools](
 Generate single UUID:
 
 ```{r}
-RcppUUID::uuid_generate_random(1)
+RcppUUID::uuid_generate_random()
 ```
 
 Generate multiple UUIDs:
@@ -59,11 +59,12 @@ Generate multiple UUIDs:
 RcppUUID::uuid_generate_random(5)
 ```
 
-Check uniques:
+Check uniques for the uuids:
 
 ```{r}
+unique_n <- function(x) length(unique(x))
 n <- 1000000
-length(unique(RcppUUID::uuid_generate_random(n))) == n
+unique_n(RcppUUID::uuid_generate_random(n)) == n
 ```
 
 Benchmarking:
@@ -105,6 +106,9 @@ length(unique(as.vector(uuids))) == length(letters)
 ### Validate UUIDs
 
 ```{r}
+RcppUUID::uuid_validate(NA_character_)
+RcppUUID::uuid_validate("")
+RcppUUID::uuid_validate("not uuid")
 RcppUUID::uuid_validate(RcppUUID::uuid_generate_random(5))
 RcppUUID::uuid_validate(RcppUUID::uuid_generate_nil(5))
 RcppUUID::uuid_validate(RcppUUID::uuid_generate_name(letters[1:5]))
