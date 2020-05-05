@@ -20,3 +20,4 @@
 ^\.lintr$
 ^\.appveyor\.yml$
 ^.*\.tar\.gz
+^cran-comments\.md$
