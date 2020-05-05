@@ -29,7 +29,7 @@ uuid_generate_name <- function(x) {
     .Call(`_RcppUUID_uuid_generate_name`, x)
 }
 
-#' @title Generrates Nil UUIDs
+#' @title Generates Nil UUIDs
 #'
 #' @description
 #' Function generates nil uuids.

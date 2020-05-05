@@ -9,9 +9,9 @@ Authors@R: c(
          email = "a.a.klevtsov@gmail.com",
          comment = c(ORCID = "0000-0003-0492-6647"))
   )
-Description: Provides funstion to generating a vector of Universally Unique Identifiers (UUID).
+Description: Provides functions to generating a vector of Universally Unique Identifiers (UUID).
   Used implementation from the Boost C++ library. Supported random (version 4) and name (version 5)
-  UUIDs. UUIDs generation are parallelized by OpenMP.
+  UUIDs.
 URL: https://artemklevtsov.gitlab.io/rcppuuid, https://gitlab.com/artemklevtsov/rcppuuid
 BugReports: https://gitlab.com/artemklevtsov/rcppuuid/issues
 License: GPL (>= 2)

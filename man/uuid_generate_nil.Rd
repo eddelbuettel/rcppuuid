@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{uuid_generate_nil}
 \alias{uuid_generate_nil}
-\title{Generrates Nil UUIDs}
+\title{Generates Nil UUIDs}
 \usage{
 uuid_generate_nil(n = 1L)
 }

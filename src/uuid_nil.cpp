@@ -7,7 +7,7 @@ using namespace Rcpp;
 using boost::uuids::nil_generator;
 using boost::uuids::uuid;
 
-//' @title Generrates Nil UUIDs
+//' @title Generates Nil UUIDs
 //'
 //' @description
 //' Function generates nil uuids.
