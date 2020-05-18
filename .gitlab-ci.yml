@@ -22,16 +22,16 @@ check:linux:devel-ubsan-clang:
   extends: .check:linux:devel-ubsan-clang
 
 check:windows:release:
-  extends: .check:linux:release
+  extends: .check:windows:release
 
 check:windows:oldrel:
   extends: .check:windows:oldrel
 
 check:windows:devel:
-  extends: .check:linux:devel
+  extends: .check:windows:devel
 
 check:windows:patched:
-  extends: .check:linux:patched
+  extends: .check:windows:patched
 
 code:coverage:
   extends: .code:coverage
