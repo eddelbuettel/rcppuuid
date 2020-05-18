@@ -2,3 +2,42 @@ include:
   - project: artemklevtsov/r-gitlab-ci
     ref: master
     file: /ci.yml
+
+check:linux:release:
+  extends: .check:linux:release
+
+check:linux:oldrel:
+  extends: .check:linux:oldrel
+
+check:linux:devel:
+  extends: .check:linux:devel
+
+check:linux:patched:
+  extends: .check:linux:patched
+
+check:linux:devel-san:
+  extends: .check:linux:devel-san
+
+check:linux:devel-ubsan-clang:
+  extends: .check:linux:devel-ubsan-clang
+
+check:windows:release:
+  extends: .check:linux:release
+
+check:windows:oldrel:
+  extends: .check:windows:oldrel
+
+check:windows:devel:
+  extends: .check:linux:devel
+
+check:windows:patched:
+  extends: .check:linux:patched
+
+code:coverage:
+  extends: .code:coverage
+
+code:lint:
+  extends: .code:lint
+
+pages:
+  extends: .pages:pkgdown
