@@ -1,7 +1,7 @@
 Package: RcppUUID
 Type: Package
 Title: Generating Universally Unique Identificators
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(
   person(given = "Artem",
          family = "Klevtsov",
@@ -20,5 +20,5 @@ Suggests: tinytest, uuid, microbenchmark
 LinkingTo: Rcpp, BH
 Encoding: UTF-8
 NeedsCompilation: yes
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)

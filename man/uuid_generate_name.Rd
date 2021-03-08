@@ -4,10 +4,12 @@
 \alias{uuid_generate_name}
 \title{Generate UUIDs Version 5}
 \usage{
-uuid_generate_name(x)
+uuid_generate_name(x, ns = "x500dn")
 }
 \arguments{
 \item{x}{Character vector.}
+
+\item{ns}{Namespace string. Allowed values: dns, url, oid, x500dn.}
 }
 \value{
 Character vector with UUIDs.

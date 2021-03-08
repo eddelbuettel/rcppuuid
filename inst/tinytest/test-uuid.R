@@ -33,12 +33,18 @@ expect_equal(length(unique(uuid_generate_nil(100))), 1)
 # test uuid_generate_name -------------------------------------------------
 
 expect_error(uuid_generate_name(NULL))
+expect_error(uuid_generate_name("a", "a"))
 expect_equal(uuid_generate_name(character(0)), character(0))
 expect_true(grepl(uuid_ptrn, uuid_generate_name(NA_character_)))
 expect_true(grepl(uuid_ptrn, uuid_generate_name("")))
 expect_true(grepl(uuid_ptrn, uuid_generate_name("a")))
 expect_equal(length(uuid_generate_name(letters)), length(letters))
 expect_equal(length(unique(uuid_generate_name(letters))), length(letters))
+u <- uuid_generate_name("a")
+expect_false(u == uuid_generate_name("a", "dns"))
+expect_false(u == uuid_generate_name("a", "url"))
+expect_false(u == uuid_generate_name("a", "oid"))
+expect_true(u == uuid_generate_name("a", "x500dn"))
 
 
 # test uuid_validate ------------------------------------------------------
