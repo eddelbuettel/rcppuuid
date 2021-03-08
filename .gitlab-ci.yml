@@ -1,5 +1,5 @@
 include:
-  - project: artemklevtsov/r-gitlab-ci
+  - project: artemklevtsov/r-ci
     ref: master
     file: /ci.yml
 
