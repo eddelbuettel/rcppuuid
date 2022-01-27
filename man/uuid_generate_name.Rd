@@ -17,7 +17,7 @@ Character vector with UUIDs.
 \description{
 Function generates name-based uuid is derived from content in a namespace.
 A uuid with identical content shall yield the same uuid.
-Hashing algorithm is SHA1. Namespace is X.500 DN.
+Hashing algorithm is SHA1.
 }
 \note{
 This function generates valid uuids for the \code{NA} and empty strings.

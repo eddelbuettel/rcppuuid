@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // uuid_generate_name
 StringVector uuid_generate_name(StringVector x, const std::string& ns);
 RcppExport SEXP _RcppUUID_uuid_generate_name(SEXP xSEXP, SEXP nsSEXP) {
