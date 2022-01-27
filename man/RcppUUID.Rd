@@ -15,7 +15,7 @@ Useful links:
 \itemize{
   \item \url{https://artemklevtsov.gitlab.io/rcppuuid}
   \item \url{https://gitlab.com/artemklevtsov/rcppuuid}
-  \item Report bugs at \url{https://gitlab.com/artemklevtsov/rcppuuid/issues}
+  \item Report bugs at \url{https://gitlab.com/artemklevtsov/rcppuuid/-/issues}
 }
 
 }

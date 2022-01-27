@@ -13,7 +13,7 @@ Description: Provides functions to generating a vector of Universally Unique Ide
   Used implementation from the Boost C++ library. Supported random (version 4) and name (version 5)
   UUIDs.
 URL: https://artemklevtsov.gitlab.io/rcppuuid, https://gitlab.com/artemklevtsov/rcppuuid
-BugReports: https://gitlab.com/artemklevtsov/rcppuuid/issues
+BugReports: https://gitlab.com/artemklevtsov/rcppuuid/-/issues
 License: GPL (>= 2)
 Imports: Rcpp
 Suggests: tinytest, uuid, microbenchmark
