@@ -1,4 +1,4 @@
-url: https://artemklevtsov.gitlab.io/rccpuuid
+url: https://artemklevtsov.gitlab.io/rcppuuid
 
 destination: public
 
@@ -8,4 +8,4 @@ development:
 navbar:
   right:
     - icon: fa-gitlab fa-lg
-      href: https://gitlab.com/artemklevtsov/rccpuuid
+      href: https://gitlab.com/artemklevtsov/rcppuuid
