@@ -11,11 +11,11 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // uuid_generate_name
-StringVector uuid_generate_name(StringVector x, const std::string& ns);
+StringVector uuid_generate_name(std::vector<std::string> x, const std::string& ns);
 RcppExport SEXP _RcppUUID_uuid_generate_name(SEXP xSEXP, SEXP nsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::traits::input_parameter< StringVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type x(xSEXP);
     Rcpp::traits::input_parameter< const std::string& >::type ns(nsSEXP);
     rcpp_result_gen = Rcpp::wrap(uuid_generate_name(x, ns));
     return rcpp_result_gen;

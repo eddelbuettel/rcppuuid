@@ -48,7 +48,7 @@ uuid str2ns(const std::string& ns) {
 //' uuid_generate_name(c("one", "two"))
 //'
 // [[Rcpp::export(rng=false)]]
-StringVector uuid_generate_name(StringVector x, const std::string& ns = "x500dn")  {
+StringVector uuid_generate_name(std::vector<std::string> x, const std::string& ns = "x500dn")  {
   std::vector<uuid> res(x.size());
   name_generator_sha1 gen(str2ns(ns));
   std::transform(x.begin(), x.end(), res.begin(), gen);
