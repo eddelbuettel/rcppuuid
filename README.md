@@ -1,25 +1,11 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # RcppUUID
 
-<!-- badges: start -->
-
-[![GitLab CI Build
-Status](https://gitlab.com/artemklevtsov/rcppuuid/badges/master/pipeline.svg)](https://gitlab.com/artemklevtsov/rcppuuid/-/pipelines)
-[![AppVeyor Build
-status](https://ci.appveyor.com/api/projects/status/if9qot73i61ts59y?svg=true)](https://ci.appveyor.com/project/artemklevtsov/rcppuuid)
-[![Codecov Code
-Coverage](https://codecov.io/gl/artemklevtsov/rcppuuid/branch/master/graph/badge.svg)](https://app.codecov.io/gl/artemklevtsov/rcppuuid)
-[![CRAN
-Status](http://www.r-pkg.org/badges/version/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
-[![License: GPL
-v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
-
-<!-- badges: end -->
+[![CRAN Status](http://www.r-pkg.org/badges/version/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 R package to generate Universally Unique Identifiers (UUIDs) version 4
-and 5 using Boost C++ library.
+and 5 using the Boost C++ library.
 
 ## Installation
 
@@ -33,7 +19,7 @@ Also you could install the dev-version with the `install_gitlab()`
 function from the `remotes` package:
 
 ``` r
-remotes::install_gitlab("artemklevtsov/rcppuuid")
+remotes::install_gitlab("eddelbuettel/rcppuuid")
 ```
 
 This package contains the compiled code, therefore you have to use the
@@ -163,3 +149,12 @@ save a lot of time.
 
 The `RcppUUID` package is distributed under
 [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) license.
+
+## Author
+
+The package was written by [Artem Klevtsov](https://github.com/artemklevtsov)
+and maintained in [this GitLab
+repo](https://gitlab.com/artemklevtsov/rcppuuid).
+
+The package in this repository is now maintained by [Dirk
+Eddelbuettel]((https://github.com/eddelbuettel).
