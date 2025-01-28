@@ -1,7 +1,8 @@
 
 # RcppUUID
 
-[![CRAN Status](http://www.r-pkg.org/badges/version/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
+[![CI](https://github.com/eddelbuettel/rcppuuid/workflows/ci/badge.svg)](https://github.com/eddelbuettel/rcppuuid/actions?query=workflow%3Aci)
+[![CRAN Status](https://www.r-pkg.org/badges/version/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 R package to generate Universally Unique Identifiers (UUIDs) version 4
