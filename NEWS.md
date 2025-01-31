@@ -1,3 +1,7 @@
+# RcppUUID 1.1.2
+
+* New maintainer to resurrect package on CRAN
+
 # RcppUUID 1.1.1
 
 * Apply CRAN patch for the Makevars.ucrt.

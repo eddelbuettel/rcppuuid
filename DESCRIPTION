@@ -1,14 +1,15 @@
 Package: RcppUUID
 Type: Package
 Title: Generating Universally Unique Identificators
-Version: 1.1.1.1
+Version: 1.1.2
+Date: 2025-01-31
 Authors@R: c(person("Artem", "Klevtsov", role = "aut", email = "a.a.klevtsov@gmail.com",
                     comment = c(ORCID = "0000-0003-0492-6647")),
              person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
                     comment = c(ORCID = "0000-0001-6419-907X")))
-Description: Using the implementation in Boost C++ library, functions are provided to generating
-  a vector of Universally Unique Identifiers (UUID) from R supporting random (version 4) and name
-  (version 5) UUIDs. The initial repository was <https://gitlab.com/artemklevtsov/rcppuuid>.
+Description: Using the implementation in Boost C++ library, functions are provided to generate
+  vectors of 'Universally Unique Identifiers (UUID)' from R supporting random (version 4) and name
+  (version 5) 'UUIDs'. The initial repository was <https://gitlab.com/artemklevtsov/rcppuuid>.
 URL: https://github.com/eddelbuettel/rcppuuid
 BugReports: https://github.com/eddelbuettel/rcppuuid/issues
 License: GPL (>= 2)
