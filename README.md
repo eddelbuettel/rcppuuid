@@ -2,8 +2,12 @@
 # RcppUUID
 
 [![CI](https://github.com/eddelbuettel/rcppuuid/workflows/ci/badge.svg)](https://github.com/eddelbuettel/rcppuuid/actions?query=workflow%3Aci)
-[![CRAN Status](https://www.r-pkg.org/badges/version/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![CRAN Status](https://www.r-pkg.org/badges/version/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
+[![r-universe](https://eddelbuettel.r-universe.dev/badges/RcppUUID)](https://eddelbuettel.r-universe.dev/rcppuuid)
+[![Dependencies](https://tinyverse.netlify.app/badge/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
+[![Downloads](https://cranlogs.r-pkg.org/badges/RcppUUID?color=brightgreen)](https://www.r-pkg.org:443/pkg/RcppUUID)
+[![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/rcppuuid)](https://github.com/eddelbuettel/rcppuuid)
 
 R package to generate Universally Unique Identifiers (UUIDs) version 4
 and 5 using the Boost C++ library.
@@ -16,11 +20,11 @@ To install the package from the CRAN run the following command:
 install.packages("RcppUUID", repos = "https://cloud.r-project.org/")
 ```
 
-Also you could install the dev-version with the `install_gitlab()`
+Also you could install the dev-version with the `install_github()`
 function from the `remotes` package:
 
 ``` r
-remotes::install_gitlab("eddelbuettel/rcppuuid")
+remotes::install_github("eddelbuettel/rcppuuid")
 ```
 
 This package contains the compiled code, therefore you have to use the
@@ -158,4 +162,4 @@ and maintained in [this GitLab
 repo](https://gitlab.com/artemklevtsov/rcppuuid).
 
 The package in this repository is now maintained by [Dirk
-Eddelbuettel]((https://github.com/eddelbuettel).
+Eddelbuettel](https://github.com/eddelbuettel). 
