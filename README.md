@@ -1,39 +1,18 @@
 
-# RcppUUID
+## RcppUUID -- Universally Unique Identifiers (UUIDs) version 4 and 5
 
 [![CI](https://github.com/eddelbuettel/rcppuuid/workflows/ci/badge.svg)](https://github.com/eddelbuettel/rcppuuid/actions?query=workflow%3Aci)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 [![CRAN Status](https://www.r-pkg.org/badges/version/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
 [![r-universe](https://eddelbuettel.r-universe.dev/badges/RcppUUID)](https://eddelbuettel.r-universe.dev/rcppuuid)
-[![Dependencies](https://tinyverse.netlify.app/badge/RcppUUID)](https://cran.r-project.org/package=RcppUUID)
+[![Dependencies](https://tinyverse.netlify.app/badge/anytime)](https://cran.r-project.org/package=RcppUUID)
 [![Downloads](https://cranlogs.r-pkg.org/badges/RcppUUID?color=brightgreen)](https://www.r-pkg.org:443/pkg/RcppUUID)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/rcppuuid)](https://github.com/eddelbuettel/rcppuuid)
 
-R package to generate Universally Unique Identifiers (UUIDs) version 4
-and 5 using the Boost C++ library.
 
-## Installation
+### Usage
 
-To install the package from the CRAN run the following command:
-
-``` r
-install.packages("RcppUUID", repos = "https://cloud.r-project.org/")
-```
-
-Also you could install the dev-version with the `install_github()`
-function from the `remotes` package:
-
-``` r
-remotes::install_github("eddelbuettel/rcppuuid")
-```
-
-This package contains the compiled code, therefore you have to use the
-[Rtools](https://cran.r-project.org/bin/windows/Rtools/) to install it
-on Windows.
-
-## Usage
-
-### Generate version 4 UUIDs
+#### Generate version 4 UUIDs
 
 Generate single UUID:
 
@@ -46,8 +25,9 @@ Generate multiple UUIDs:
 
 ``` r
 RcppUUID::uuid_generate_random(5)
-#> [1] "2d5caacd-7123-4072-b66f-74874f0424d9" "3c4f1e13-50af-46ab-a32a-f17cb1842875" "b0c0075d-f1fb-476c-9d27-0dd07c63ddef"
-#> [4] "e6992ca8-7b32-45ab-9fa2-e11690c11c35" "4d9fce08-a71d-402f-9fa5-9e38fa136abb"
+#> [1] "2d5caacd-7123-4072-b66f-74874f0424d9" "3c4f1e13-50af-46ab-a32a-f17cb1842875" 
+#> [3] "b0c0075d-f1fb-476c-9d27-0dd07c63ddef" "e6992ca8-7b32-45ab-9fa2-e11690c11c35"
+#> [5] "4d9fce08-a71d-402f-9fa5-9e38fa136abb"
 ```
 
 Check uniques for the uuids:
@@ -88,14 +68,15 @@ microbenchmark::microbenchmark(
 #>  RcppUUID 12.76133 13.05205 17.27462 13.46904 13.69007 203.0705   100
 ```
 
-### Generate version 5 UUIDs
+#### Generate version 5 UUIDs
 
 Generate version UUIDs based on the text input:
 
 ``` r
 RcppUUID::uuid_generate_name(letters[1:5])
-#> [1] "54a0a790-c611-5b5b-b50e-ff01490ecdfa" "d5080e36-1ba4-5cb3-861c-34b25868f7db" "33ed51b6-a330-5830-bda9-2bac09e15753"
-#> [4] "b74b2afe-06d5-5fea-99cc-a7de0b492704" "8535136c-b0d3-5373-aa79-ab67d33a2a8e"
+#> [1] "54a0a790-c611-5b5b-b50e-ff01490ecdfa" "d5080e36-1ba4-5cb3-861c-34b25868f7db"
+#> [3] "33ed51b6-a330-5830-bda9-2bac09e15753" "b74b2afe-06d5-5fea-99cc-a7de0b492704"
+#> [5] "8535136c-b0d3-5373-aa79-ab67d33a2a8e"
 ```
 
 For the each unique input will be generated unique UUID. Check
@@ -107,7 +88,7 @@ length(unique(as.vector(uuids))) == length(letters)
 #> [1] TRUE
 ```
 
-### Validate UUIDs
+#### Validate UUIDs
 
 ``` r
 RcppUUID::uuid_validate(NA_character_)
@@ -124,7 +105,38 @@ RcppUUID::uuid_validate(RcppUUID::uuid_generate_name(letters[1:5]))
 #> [1] TRUE TRUE TRUE TRUE TRUE
 ```
 
-## Bug reports
+### Installation
+
+To install the package from the CRAN run the following command:
+
+``` r
+install.packages("RcppUUID", repos = "https://cloud.r-project.org/")
+```
+
+Pre-releases can be installed from [r-universe](https://eddelbuettel.r-universe.dev/RcppUUID)
+via
+
+```r
+repos <- c(ru = 'https://eddelbuettel.r-universe.dev', getOption("repos"))
+install.packages('RcppUUID', repos = repos)
+```
+
+which provides binaries for several operating systems too.
+
+One can install the development version with the `install_github()`
+function from the `remotes` package:
+
+``` r
+remotes::install_github("eddelbuettel/rcppuuid")
+```
+
+This package contains the compiled code, therefore one has to use the
+[Rtools](https://cran.r-project.org/bin/windows/Rtools/) to install it
+on Windows.
+
+
+
+### Bug reports
 
 Use the following command to go to the page for bug report submissions:
 
@@ -150,12 +162,12 @@ Before reporting a bug or submitting an issue, please do the following:
 Please attach traceback() and sessionInfo() output to bug report. It may
 save a lot of time.
 
-## License
+### License
 
 The `RcppUUID` package is distributed under
 [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) license.
 
-## Author
+### Author
 
 The package was written by [Artem Klevtsov](https://github.com/artemklevtsov)
 and maintained in [this GitLab
