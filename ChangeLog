@@ -1,3 +1,7 @@
+2025-02-03  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/NEWS.Rd: Added based on NEWS.md
+
 2025-02-02  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: More edits, expand installation, move it lower
