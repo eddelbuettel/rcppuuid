@@ -41,6 +41,16 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// uuid_generate_time
+Rcpp::StringVector uuid_generate_time(size_t n);
+RcppExport SEXP _RcppUUID_uuid_generate_time(SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< size_t >::type n(nSEXP);
+    rcpp_result_gen = Rcpp::wrap(uuid_generate_time(n));
+    return rcpp_result_gen;
+END_RCPP
+}
 // uuid_validate
 LogicalVector uuid_validate(StringVector x);
 RcppExport SEXP _RcppUUID_uuid_validate(SEXP xSEXP) {
@@ -56,6 +66,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_RcppUUID_uuid_generate_name", (DL_FUNC) &_RcppUUID_uuid_generate_name, 2},
     {"_RcppUUID_uuid_generate_nil", (DL_FUNC) &_RcppUUID_uuid_generate_nil, 1},
     {"_RcppUUID_uuid_generate_random", (DL_FUNC) &_RcppUUID_uuid_generate_random, 1},
+    {"_RcppUUID_uuid_generate_time", (DL_FUNC) &_RcppUUID_uuid_generate_time, 1},
     {"_RcppUUID_uuid_validate", (DL_FUNC) &_RcppUUID_uuid_validate, 1},
     {NULL, NULL, 0}
 };

@@ -72,6 +72,27 @@ uuid_generate_random <- function(n = 1L) {
     .Call(`_RcppUUID_uuid_generate_random`, n)
 }
 
+#' @title Generate UUIDs Version 7
+#'
+#' @description
+#' This function generates time-based uuids using operating system provided entropy. Note
+#' that this requires Boost 1.86 or later.
+#'
+#' @param n Number of generated UUIDs.
+#' @return Character vector with UUIDs generated under specification v7.
+#'
+#' @references
+#' <http://boost.org/libs/uuid>
+#'
+#' @examples
+#' # generate random UUIDs
+#' uuid_generate_time(2)
+#'
+#' @export
+uuid_generate_time <- function(n = 1L) {
+    .Call(`_RcppUUID_uuid_generate_time`, n)
+}
+
 #' @title Validate UUIDs
 #'
 #' @description
