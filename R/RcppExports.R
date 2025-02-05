@@ -82,7 +82,7 @@ uuid_generate_random <- function(n = 1L) {
 #' @return Character vector with UUIDs generated under specification v7.
 #'
 #' @references
-#' <http://boost.org/libs/uuid>
+#' <https://www.boost.org/doc/libs/release/libs/uuid/>
 #'
 #' @examples
 #' # generate random UUIDs

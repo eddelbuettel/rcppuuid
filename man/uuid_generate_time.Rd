@@ -22,5 +22,5 @@ uuid_generate_time(2)
 
 }
 \references{
-\url{http://boost.org/libs/uuid}
+\url{https://www.boost.org/doc/libs/release/libs/uuid/}
 }
