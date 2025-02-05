@@ -1,3 +1,17 @@
+2025-02-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/uuid_time.cpp: Add v7 support for time-based UUIDs
+	* man/uuid_generate_time.Rd: Generated
+	* src/RcppExports.cpp: Regenerated
+	* R/RcppExports.R: Idem
+	* NAMESPACE: Idem
+
+	* DESCTIPTION: Add version requirement to LinkingTo: for BH, with
+	that add versioned Depends: on R itself
+
+	* .editorconfig: Added
+	* .Rbuildignore: Updated
+
 2025-02-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/NEWS.Rd: Added based on NEWS.md
@@ -13,4 +27,3 @@
 2025-01-31  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 1.1.2
-
