@@ -1,3 +1,10 @@
+2025-02-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Mention v7 UUIDs, general edits
+	* DESCRIPTION (Description): Idem
+	* R/RcppUUID-package.R: Idem
+	* man/RcppUUID.Rd: Regenerated
+
 2025-02-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/uuid_time.cpp: Add v7 support for time-based UUIDs
