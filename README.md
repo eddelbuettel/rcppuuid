@@ -1,5 +1,5 @@
 
-## RcppUUID -- Universally Unique Identifiers (UUIDs) versions 4, 5 and 7
+## RcppUUID: Universally Unique Identifiers (UUIDs) versions 4, 5 and 7
 
 [![CI](https://github.com/eddelbuettel/rcppuuid/workflows/ci/badge.svg)](https://github.com/eddelbuettel/rcppuuid/actions?query=workflow%3Aci)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
