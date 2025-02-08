@@ -1,3 +1,7 @@
+2025-02-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test-uuid.R: Added tests for uuid_generate_time
+
 2025-02-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Mention v7 UUIDs, general edits

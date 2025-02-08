@@ -1,3 +1,5 @@
+library(RcppUUID) 			# so that the file can be tested via run_test_file()
+
 # regex pattern to validate
 uuid_ptrn <- "[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"
 uuid_nil <- "00000000-0000-0000-0000-000000000000"
@@ -59,3 +61,13 @@ expect_false(uuid_validate(""))
 expect_false(uuid_validate("a"))
 expect_equal(length(uuid_validate(c("a", "f"))), 2)
 expect_equal(length(uuid_validate(uuid_generate_random(10))), 10)
+
+# test uuid_generate_time -------------------------------------------------
+
+expect_error(uuid_generate_time(NULL))						# Rcpp checks args
+expect_true(is.character(uuid_generate_time()))				# return is character
+expect_equal(length(uuid_generate_time()), 1L)              # default length 1
+N <- 1500L
+expect_equal(length(uuid_generate_time(N)), N)              # expected length
+expect_equal(length(unique(uuid_generate_time(N))), N)      # unique elements
+expect_equal(order(uuid_generate_time(N)), 1:N)     		# time-ordered elements
