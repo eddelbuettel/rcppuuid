@@ -126,6 +126,10 @@ Or generate multiple:
 >
 ```
 
+These have the benefits of being monotonically increasing and hence both unique and sortable /
+already ordered as is asserted in the unit tests.
+
+
 ### Installation
 
 To install the package from the CRAN run the following command:
