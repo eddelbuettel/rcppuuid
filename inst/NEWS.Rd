@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/rcppuuid/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/rcppuuid/issues/#1}{##1}}
 
+\section{Changes in version 1.2.0 (2025-02-12)}{
+  \itemize{
+    \item Time-based UUIDs, ie version 7, can now be generated (requiring
+    Boost 1.86 or newer as in the current \pkg{BH} package)
+  }
+}
+
 \section{Changes in version 1.1.2 (2025-01-31)}{
   \itemize{
     \item New maintainer to resurrect package on CRAN
